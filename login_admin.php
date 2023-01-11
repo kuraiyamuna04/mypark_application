@@ -9,10 +9,10 @@ $con = mysqli_connect($server, $username, $password, $database);
 if(!$con){
     die('error: ' . mysqli_connect_error());
 }
-  $adminname = $_POST['adminname'];
+  $adminname = $_POST['name'];
   $passwd = $_POST['passwd'];
 
-  $sql = "SELECT * from admin where adminname ='$adminname' AND passwd = '$passwd'";
+  $sql = "SELECT * from admin where name ='$adminname' AND passwd = '$passwd'";
   $result = mysqli_query($con, $sql);
   $num = mysqli_num_rows($result);
   if($num>0){
@@ -35,7 +35,7 @@ if(!$con){
     <form action="login_admin.php" method="post">
         <div class="container">   
             <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="adminname" required>  
+            <input type="text" placeholder="Enter Username" name="name" required>  
             <label>Password : </label>   
             <input type="password" placeholder="Enter Password" name="passwd" required>  
             <button type="submit">Login</button>  
